@@ -1,7 +1,7 @@
 from flask import Flask
-from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
 from flask_cors import CORS
+from .models.db import db
 import os
 
 host = os.environ["DB_HOST"]
@@ -15,8 +15,6 @@ app.config['SECRET_KEY'] = os.environ["SECRET_KEY"]
 app.config["SQLALCHEMY_DATABASE_URI"] = f'postgresql://{user}:{password}@{host}/{database}'
 
 # TODO other routes
-
-db = SQLAlchemy()
 
 db.init_app(app)
 Migrate(app, db)
