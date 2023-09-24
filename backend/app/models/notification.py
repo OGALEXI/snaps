@@ -10,4 +10,12 @@ class Notification(db.Model):
     message = db.Column(db.String(255), nullable=False)
     user_id = db.Column(db.Integer, db.ForeignKey('users.id'), nullable=False)
 
-    user = relationship('User', back_populates='notification')
+    user = relationship('User', back_populates='notifications')
+
+    def to_dict(self):
+        return {
+            'id': self.id,
+            'image': self.image,
+            'message': self.message,
+            'user_id': self.user_id,
+        }

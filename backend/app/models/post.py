@@ -4,7 +4,7 @@ from sqlalchemy.orm import relationship
 
 
 class Post(db.Model):
-    __tablename__ = 'users'
+    __tablename__ = 'posts'
 
     id = db.Column(db.Integer, primary_key=True)
     content = db.Column(db.String(255), nullable=False)
@@ -24,5 +24,6 @@ class Post(db.Model):
             'content': self.content,
             'category': self.category,
             'created_date': self.created_date,
+            'user_id': self.user_id,
             'number_of_reactions': self.number_of_reactions
         }

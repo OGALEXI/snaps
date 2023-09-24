@@ -11,19 +11,19 @@ class User(db.Model):
     lastname = db.Column(db.String(255), nullable=False)
     email = db.Column(db.String(255), nullable=False, unique=True)
     password = db.Column(db.String(255), nullable=False)
-    avatar = db.Column(db.String(255), nullable=False)
+    avatar = db.Column(db.String(255), nullable=True)
     number_of_posts = db.Column(db.BigInteger, nullable=True)
     number_of_followers = db.Column(db.BigInteger, nullable=True)
     number_of_following = db.Column(db.BigInteger, nullable=True)
 
-    followers = relationship(
-        'Follower', back_populates='user', cascade='all, delete-orphan')
     posts = relationship('Post', back_populates='user',
                          cascade='all, delete-orphan')
     post_reactions = relationship(
         'Post_Reaction', back_populates='user', cascade='all, delete-orphan')
     notifications = relationship(
         'Notification', back_populates='user', cascade='all, delete-orphan')
+
+    # TODO - Hashed password setter, getter, and checker
 
     def to_dict(self):
         return {
