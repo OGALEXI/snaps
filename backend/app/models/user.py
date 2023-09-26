@@ -1,8 +1,10 @@
 from .db import db
 from sqlalchemy.orm import relationship
+from werkzeug.security import generate_password_hash, check_password_hash
+from flask_login import UserMixin
 
 
-class User(db.Model):
+class User(db.Model, UserMixin):
     __tablename__ = 'users'
 
     id = db.Column(db.Integer, primary_key=True)
@@ -10,7 +12,7 @@ class User(db.Model):
     firstname = db.Column(db.String(255), nullable=False)
     lastname = db.Column(db.String(255), nullable=False)
     email = db.Column(db.String(255), nullable=False, unique=True)
-    password = db.Column(db.String(255), nullable=False)
+    hashed_password = db.Column(db.String(255), nullable=False)
     avatar = db.Column(db.String(255), nullable=True)
     number_of_posts = db.Column(db.BigInteger, nullable=True)
     number_of_followers = db.Column(db.BigInteger, nullable=True)
@@ -24,6 +26,16 @@ class User(db.Model):
         'Notification', back_populates='user', cascade='all, delete-orphan')
 
     # TODO - Hashed password setter, getter, and checker
+    @property
+    def password(self):
+        return self.hashed_password
+
+    @password.setter
+    def password(self, password):
+        self.hashed_password = generate_password_hash(password)
+
+    def check_password(self, password):
+        return check_password_hash(self.password, password)
 
     def to_dict(self):
         return {
@@ -32,7 +44,6 @@ class User(db.Model):
             'firstname': self.firstname,
             'lastname': self.lastname,
             'email': self.email,
-            'password': self.password,
             'avatar': self.avatar,
             'number_of_posts': self.number_of_posts,
             'number_of_followers': self.number_of_followers,

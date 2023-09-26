@@ -4,10 +4,10 @@ from sqlalchemy.sql import text
 
 def seed_posts():
     demoPost = Post(
-        content="beepeeeeee", category=1, user_id=1
+        content="beepeeeeee", caption="New yacht!! Woo!", user_id=1
     )
     bobPost = Post(
-        content="woooo", category=1, user_id=2
+        content="woooo", caption="Bruh, lameee", user_id=2
     )
 
     db.session.add(demoPost)

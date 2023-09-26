@@ -8,7 +8,7 @@ class Post(db.Model):
 
     id = db.Column(db.Integer, primary_key=True)
     content = db.Column(db.String(255), nullable=False)
-    category = db.Column(db.Integer, nullable=False)
+    caption = db.Column(db.String(255), nullable=True)
     created_date = db.Column(db.DateTime(
         timezone=True), server_default=func.now())
     user_id = db.Column(db.Integer, db.ForeignKey('users.id'), nullable=False)
@@ -22,7 +22,7 @@ class Post(db.Model):
         return {
             'id': self.id,
             'content': self.content,
-            'category': self.category,
+            'caption': self.caption,
             'created_date': self.created_date,
             'user_id': self.user_id,
             'number_of_reactions': self.number_of_reactions

@@ -1,8 +1,8 @@
 """create users table
 
-Revision ID: 0fbbea91635a
+Revision ID: 279d77590dee
 Revises: 
-Create Date: 2023-09-24 15:07:49.532250
+Create Date: 2023-09-25 21:16:35.898562
 
 """
 from alembic import op
@@ -10,7 +10,7 @@ import sqlalchemy as sa
 
 
 # revision identifiers, used by Alembic.
-revision = '0fbbea91635a'
+revision = '279d77590dee'
 down_revision = None
 branch_labels = None
 depends_on = None
@@ -24,7 +24,7 @@ def upgrade():
     sa.Column('firstname', sa.String(length=255), nullable=False),
     sa.Column('lastname', sa.String(length=255), nullable=False),
     sa.Column('email', sa.String(length=255), nullable=False),
-    sa.Column('password', sa.String(length=255), nullable=False),
+    sa.Column('hashed_password', sa.String(length=255), nullable=False),
     sa.Column('avatar', sa.String(length=255), nullable=True),
     sa.Column('number_of_posts', sa.BigInteger(), nullable=True),
     sa.Column('number_of_followers', sa.BigInteger(), nullable=True),
@@ -52,7 +52,7 @@ def upgrade():
     op.create_table('posts',
     sa.Column('id', sa.Integer(), nullable=False),
     sa.Column('content', sa.String(length=255), nullable=False),
-    sa.Column('category', sa.Integer(), nullable=False),
+    sa.Column('caption', sa.String(length=255), nullable=True),
     sa.Column('created_date', sa.DateTime(timezone=True), server_default=sa.text('now()'), nullable=True),
     sa.Column('user_id', sa.Integer(), nullable=False),
     sa.Column('number_of_reactions', sa.Integer(), nullable=True),
