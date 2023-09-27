@@ -18,7 +18,14 @@ def user_exists(form, field):
         raise ValidationError('User does not exist.')
 
 
+def followurself(form, field):
+    user_id = field.data
+    if (user_id == current_user.id):
+        raise ValidationError("You cannot follow yourself.")
+
+
 class NewFollowerForm(FlaskForm):
     follower_id = StringField('follower_id', validators=[
                               DataRequired(), follower_is_valid])
-    user_id = StringField('user_id', validators=[DataRequired(), user_exists])
+    user_id = StringField('user_id', validators=[
+                          DataRequired(), user_exists, followurself])
