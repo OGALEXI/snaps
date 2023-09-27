@@ -1,4 +1,5 @@
-from ..models import db, Follower
+from ..models.db import db
+from ..models.follower import Follower
 from sqlalchemy.sql import text
 
 
@@ -12,6 +13,7 @@ def seed_followers():
 
     db.session.add(demoFollower)
     db.session.add(bobFollower)
+    db.session.commit()
 
 
 def undo_followers():

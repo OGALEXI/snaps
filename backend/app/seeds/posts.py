@@ -12,6 +12,7 @@ def seed_posts():
 
     db.session.add(demoPost)
     db.session.add(bobPost)
+    db.session.commit()
 
 
 def undo_posts():

@@ -22,3 +22,12 @@ def new_follower():
         db.session.commit()
         return follower.to_dict()
     return {'errors': validation_errors_to_msgs(form.errors)}, 401
+
+
+@follower_routes.route('/<int:id/delete', methods=['DELETE'])
+@login_required
+def delete_follower(id):
+    follower = Follower.filter(Follower.follower_id == id).first()
+    db.session.delete(follower)
+    db.session.commit()
+    return {"message": "user deleted"}

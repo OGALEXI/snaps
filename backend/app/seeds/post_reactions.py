@@ -12,6 +12,7 @@ def seed_post_reactions():
 
     db.session.add(reaction1)
     db.session.add(reaction2)
+    db.session.commit()
 
 
 def undo_post_reactions():

@@ -12,6 +12,7 @@ def seed_notifications():
 
     db.session.add(notification1)
     db.session.add(notification2)
+    db.session.commit()
 
 
 def undo_notifications():

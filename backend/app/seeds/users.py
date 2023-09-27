@@ -1,4 +1,5 @@
-from ..models import db, User
+from ..models.db import db
+from ..models.user import User
 from sqlalchemy.sql import text
 
 
@@ -12,6 +13,7 @@ def seed_users():
 
     db.session.add(demo)
     db.session.add(bob)
+    db.session.commit()
 
 
 def undo_users():

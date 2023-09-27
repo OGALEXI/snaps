@@ -3,5 +3,5 @@ from wtforms import DecimalField
 from wtforms.validators import DataRequired
 
 
-class UpdateFollowersForm(FlaskForm):
+class UpdateUserStatsForm(FlaskForm):
     newNumber = DecimalField('newNumber', validators=[DataRequired()])
