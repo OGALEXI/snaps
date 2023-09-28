@@ -1,7 +1,7 @@
-To start the server run:
-pipenv install -r requirements.txt
+To start the server
 
-    pipenv shell
-    flask db upgrade
-    flask seed all
-    flask run
+delete the create tables migration within the migrations/version folder
+
+then run:
+
+sh startup.sh
