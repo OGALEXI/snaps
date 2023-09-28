@@ -10,9 +10,13 @@ def seed_users():
     bob = User(
         firstname='Bob', lastname='Bobert', username='BobBobert', email='bob@bob.com', password='password'
     )
+    mike = User(
+        firstname='Mike', lastname='Ross', username='MikeRoss', email='mike@ross.com', password='harvey'
+    )
 
     db.session.add(demo)
     db.session.add(bob)
+    db.session.add(mike)
     db.session.commit()
 
 

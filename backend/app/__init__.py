@@ -12,6 +12,8 @@ from .routes.user_routes import user_routes
 from .routes.post_routes import post_routes
 from .routes.follower_routes import follower_routes
 from .routes.edit_user_routes import edit_user_routes
+from .routes.notif_routes import notif_routes
+from .routes.comment_routes import comment_routes
 
 host = os.environ["DB_HOST"]
 database = os.environ["DB_NAME"]
@@ -39,6 +41,8 @@ app.register_blueprint(user_routes, url_prefix='/users')
 app.register_blueprint(post_routes, url_prefix='/posts')
 app.register_blueprint(follower_routes, url_prefix='/followers')
 app.register_blueprint(edit_user_routes, url_prefix='/edituser')
+app.register_blueprint(notif_routes, url_prefix='/notifs')
+app.register_blueprint(comment_routes, url_prefix='/comments')
 
 db.init_app(app)
 Migrate(app, db)

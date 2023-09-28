@@ -24,6 +24,8 @@ class User(db.Model, UserMixin):
         'Post_Reaction', back_populates='user', cascade='all, delete-orphan')
     notifications = relationship(
         'Notification', back_populates='user', cascade='all, delete-orphan')
+    comments = relationship(
+        'Comment', back_populates='user', cascade='all, delete-orphan')
 
     # TODO - Hashed password setter, getter, and checker
     @property
