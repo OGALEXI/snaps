@@ -1,0 +1,12 @@
+html {
+  width: 100vw;
+  height: 100vh;
+  padding: 0;
+  margin: 0;
+  background-image: linear-gradient(rgb(255, 0, 136), rgb(255, 89, 0));
+}
+
+body {
+  padding: 0;
+  margin: 0;
+}
