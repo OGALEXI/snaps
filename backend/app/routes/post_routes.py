@@ -43,7 +43,7 @@ def get_post(post_id):
 
 @post_routes.route('/<int:post_id>/reactions', methods=['PUT'])
 @login_required
-def update_post_count(post_id):
+def update_reaction_count(post_id):
     form = UpdateReactionsForm()
 
     form['csrf_token'].data = request.cookies['csrf_token']
