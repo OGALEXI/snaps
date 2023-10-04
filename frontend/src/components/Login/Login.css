@@ -1,0 +1,84 @@
+#login-page {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    padding: 0px;
+    margin: 0px;
+}
+
+#login-container {
+    display: flex;
+    width: 70vw;
+    height: 70vh;
+    background-color: var(--main-pink);
+    margin-bottom: 4rem;
+    border-radius: 5px;
+    border: 3px solid var(--main-pink);
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+#login-lottie-box {
+    background-color: var(--main-pink);
+    width: 50%;
+}
+
+#login-form {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    background-color: white;
+    color: black;
+    width: 50%;
+    border-radius: 2px;
+    margin-left: 1.5rem;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+}
+
+.login-input {
+    height: 2rem;
+    border: none;
+    border-bottom: 2px solid black;
+    margin-bottom: 5px;
+}
+
+.login-input:focus {
+    outline: none;
+}
+
+#login-continue {
+    height: 2rem;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    border-radius: 2px;
+    border: 2px solid black;
+    background-color: white;
+}
+
+#login-continue:hover {
+    background-color: black;
+    color: white;
+}
+
+#sign-up-here {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#login-sign-link {
+    color: var(--main-pink);
+    transition: font-size 100ms;
+}
+
+#login-sign-link:hover {
+    font-size: large;
+}
+
+#login-lottie-box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

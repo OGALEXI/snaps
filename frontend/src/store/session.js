@@ -1,5 +1,6 @@
-const SET_USER = 'user/SET_USER';
-const REMOVE_USER = 'user/REMOVE_USER';
+// constants
+const SET_USER = 'session/SET_USER';
+const REMOVE_USER = 'session/REMOVE_USER';
 
 const setUser = (user) => ({
   type: SET_USER,
@@ -67,15 +68,13 @@ export const logout = () => async (dispatch) => {
 };
 
 export const signUp =
-  (avatar, firstname, lastname, username, email, password) =>
-  async (dispatch) => {
+  (firstname, lastname, username, email, password) => async (dispatch) => {
     const res = await fetch('/auth/signup', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({
-        avatar,
         firstname,
         lastname,
         username,
