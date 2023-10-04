@@ -1,0 +1,48 @@
+#user-dropdown {
+    position: relative;
+    display: inline-block;
+    border: none;
+    background-color: rgba(255, 255, 255, 0);
+}
+
+#user-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    opacity: 0;
+    visibility: hidden;
+    position: absolute;
+    background-color: white;
+    height: 0px;
+    min-width: 10rem;
+    right: 5px;
+    z-index: 1;
+    border: 2px solid var(--main-pink);
+    border-radius: 2px;
+    transition: visibility 0s, height 0.5s, opacity 1s linear;
+}
+
+#user-dropdown:hover #user-content {
+    visibility: visible;
+    opacity: 1;
+    cursor: grab/pointer;
+    height: 10rem;
+}
+
+.user-linkies {
+    text-decoration: none;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    color: black;
+    font-size: medium;
+}
+
+.user-linkies:hover {
+    font-size: large;
+}
+
+#logout-btn {
+    border: none;
+    background-color: rgba(255, 255, 255, 0);
+}
