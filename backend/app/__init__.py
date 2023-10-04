@@ -1,5 +1,5 @@
 import os
-from flask import Flask
+from flask import Flask, request, redirect
 from flask_wtf.csrf import generate_csrf
 from flask_migrate import Migrate
 from flask_cors import CORS
@@ -21,7 +21,7 @@ user = os.environ["DB_USERNAME"]
 password = os.environ["DB_PASSWORD"]
 
 
-app = Flask(__name__)
+app = Flask(__name__, static_folder='../react-app/build', static_url_path='/')
 app.config['SECRET_KEY'] = os.environ["SECRET_KEY"]
 app.config["SQLALCHEMY_DATABASE_URI"] = f'postgresql://{user}:{password}@{host}/{database}'
 
@@ -50,10 +50,27 @@ Migrate(app, db)
 CORS(app)
 
 
+@app.before_request
+def https_redirect():
+    if os.environ.get('FLASK_ENV') == 'production':
+        if request.headers.get('X-Forwarded-Proto') == 'http':
+            url = request.url.replace('http://', 'https://', 1)
+            code = 301
+            return redirect(url, code=code)
+
+
 @app.after_request
-def give_csrf_token(response):
-    response.set_cookie(
+def inject_csrf_token(res):
+    res.set_cookie(
         'csrf_token',
         generate_csrf(),
-    )
-    return response
+        secure=True if os.environ.get('FLASK_ENV') == 'production' else False,
+        samesite='Strict' if os.environ.get(
+            'FLASK_ENV') == 'production' else None,
+        httponly=True)
+    return res
+
+
+@app.errorhandler(404)
+def not_found(e):
+    return app.send_static_file('index.html')
