@@ -16,4 +16,5 @@ html {
     height: 100vh;
     --main-pink: rgb(255, 0, 106);
     --dark-pink: rgb(152, 2, 65);
+    --main-purple: rgb(182, 0, 253);
 }

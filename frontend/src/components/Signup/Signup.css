@@ -1,0 +1,108 @@
+#signup-page {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    padding: 0px;
+    margin: 0px;
+}
+
+#signup-container {
+    display: flex;
+    width: 70vw;
+    height: 70vh;
+    background-color: var(--main-pink);
+    margin-bottom: 4rem;
+    border-radius: 5px;
+    border: 3px solid var(--main-pink);
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+#signup-form-box {
+    background-image: linear-gradient(var(--main-pink), var(--main-purple));
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    border-radius: 2px;
+}
+
+#signup-lottie-box {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    background-color: white;
+    color: black;
+    width: 50%;
+}
+
+#signup-prompt {
+    font-weight: 300;
+    margin-left: 10px;
+}
+
+.signup-input {
+    height: 2rem;
+    background-color: rgba(255, 255, 255, 0);
+    border: none;
+    border-bottom: 2px solid black;
+    margin-bottom: 5px;
+    margin-left: 1rem;
+    margin-right: 1rem;
+}
+
+.signup-input::placeholder {
+    color: black
+}
+
+.signup-input:focus {
+    outline: none;
+}
+
+#signup-submit-btn {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 500;
+    height: 2rem;
+    margin-top: 10px;
+    margin-left: 2rem;
+    margin-right: 2rem;
+    margin-bottom: 10px;
+    border-radius: 2px;
+    border: 2px solid black;
+    background-color: rgba(255, 255, 255, 0);
+}
+
+#signup-submit-btn:hover {
+    background-color: black;
+    color: white;
+}
+
+#signup-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+#signup-login-link {
+    text-decoration: none;
+    color: white;
+}
+
+#signup-login-link:hover {
+    text-decoration: underline;
+}
+
+#signup-error-box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 1rem;
+}
+
+.signup-errors {
+    list-style: none;
+    font-weight: 500;
+}

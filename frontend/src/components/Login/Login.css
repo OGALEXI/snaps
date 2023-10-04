@@ -20,7 +20,7 @@
 }
 
 #login-lottie-box {
-    background-color: var(--main-pink);
+    background-image: linear-gradient(var(--main-pink), var(--main-purple));
     width: 50%;
 }
 
@@ -33,7 +33,6 @@
     color: black;
     width: 50%;
     border-radius: 2px;
-    margin-left: 1.5rem;
     padding-left: 1.5rem;
     padding-right: 1.5rem;
 }
@@ -50,6 +49,8 @@
 }
 
 #login-continue {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 500;
     height: 2rem;
     margin-top: 10px;
     margin-bottom: 10px;

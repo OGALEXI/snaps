@@ -60,7 +60,7 @@ function Login() {
               required
               className='login-input'
             />
-          <button type="submit" id="login-continue">Continue</button>
+          <button type="submit" id="login-continue">CONTINUE</button>
           <footer id="sign-up-here">
             <p>Don't have an account?</p><NavLink to='/signup' id="login-sign-link">Sign up here.</NavLink>
           </footer>
