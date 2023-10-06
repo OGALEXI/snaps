@@ -1,9 +1,8 @@
 import React, { useState } from 'react';
 import { login } from '../../store/session';
 import { useDispatch, useSelector } from 'react-redux';
-import { Redirect } from 'react-router-dom';
+import { Redirect, NavLink } from 'react-router-dom/cjs/react-router-dom';
 import './Login.css';
-import { NavLink } from 'react-router-dom';
 import Lottie from 'react-lottie';
 import animationData from '../../assets/lady-walking.json'
 

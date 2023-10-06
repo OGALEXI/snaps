@@ -1,0 +1,22 @@
+#post-page-outer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#pp-username-and-caption {
+    display: flex;
+    align-items: center;
+}
+
+#pp-username-and-caption p {
+    padding-left: 10px;
+}
+
+#post-page-img {
+    width: 20rem;
+    height: 20rem;
+    object-fit: cover;
+    border: 2px solid black;
+    margin: 2px;
+}
