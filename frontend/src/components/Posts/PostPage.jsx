@@ -4,6 +4,8 @@ import { useParams } from 'react-router-dom';
 import { loadPostDetails } from "../../store/posts";
 import { getAllUsers } from "../../store/session";
 import './PostPage.css'
+import likeHeart from '../../assets/empty_heart.png';
+import PostComments from "./PostComments";
 
 function PostPage() {
     const dispatch = useDispatch();
@@ -20,17 +22,24 @@ function PostPage() {
         <>
             {user && post ? (
                 <div id="post-page-outer">
-                    <div>
+                    <section id="pp-post-and-comments">
+                        <div id="pp-post-container">
                         <img src={post.content} id="post-page-img"></img>
                         <div>
-                            <p>TODO- Number of likes</p>
+                            <button id="pp-heart-like"><img src={likeHeart}></img></button>
                         </div>
-                        <div id="pp-username-and-caption">
+                        <div className="pp-post-details">
+                            <p id="pp-post-likes">TODO- Number of likes</p>
+                        </div>
+                        <div id="pp-username-and-caption" className="pp-post-details">
                             <h3>@{user.username}</h3>
                             <p>{post.caption}</p>
                         </div>
                     </div>
-                    <p>TODO - Comments</p>
+                    <aside id="pp-comments-container">
+                        <PostComments postId={postId}/>
+                    </aside>
+                    </section>
                 </div>
             ) : (
                 <h2>TODO - LOADING</h2>

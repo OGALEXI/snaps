@@ -3,6 +3,7 @@ import { useSelector } from "react-redux";
 import { Redirect } from "react-router-dom/cjs/react-router-dom";
 import './UserProfile.css'
 import UserPosts from "./UserPosts";
+import defaultAvatar from '../../assets/default_avatar.png';
 
 function UserProfile() {
     const user = useSelector((state) => state.session.user);
@@ -17,7 +18,7 @@ function UserProfile() {
                         {user.avatar ? (
                             <h1>AVATAR1</h1>
                         ) : (
-                            <span className="material-symbols-outlined avatar-2">person</span>
+                            <img src={defaultAvatar} id="profile-default-avatar"></img>
                         )}
                     </div>
                     <p>@{user.username}</p>
@@ -43,8 +44,8 @@ function UserProfile() {
                     <div className="user-profile-info"> BIO</div>
                 </section>
                 <aside id="user-edit-profile">
-                    <span class="material-symbols-outlined">edit</span>
-                    <span class="material-symbols-outlined">add_circle</span>
+                    <button className="edit-add-profile-btns"><span className="material-symbols-outlined">edit</span></button>
+                    <button className="edit-add-profile-btns"><span className="material-symbols-outlined">add_circle</span></button>
                 </aside>
             </div>
             <footer id="user-profile-posts-section">

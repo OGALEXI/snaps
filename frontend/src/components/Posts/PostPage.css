@@ -1,12 +1,26 @@
 #post-page-outer {
+    height: 100vh;
     display: flex;
-    flex-direction: column;
-    align-items: center;
+    justify-content: center;
 }
 
 #pp-username-and-caption {
     display: flex;
     align-items: center;
+}
+
+#pp-post-and-comments {
+    display: flex;
+    margin-top: 1rem;
+    width: fit-content;
+    height: fit-content;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    border: 1px solid black;
+    border-radius: 2px;
+}
+
+#pp-post-container {
+    padding: 1rem;
 }
 
 #pp-username-and-caption p {
@@ -19,4 +33,25 @@
     object-fit: cover;
     border: 2px solid black;
     margin: 2px;
+}
+
+#pp-heart-like {
+    border: none;
+    background-color: rgba(255, 255, 255, 0);
+    cursor: pointer;
+}
+
+.pp-post-details {
+    padding: 0px;
+}
+
+#pp-post-likes {
+    margin: 2px;
+}
+
+#pp-comments-container {
+    background-color: black;
+    width: 20rem;
+    padding: 1rem;
+    color: white;
 }

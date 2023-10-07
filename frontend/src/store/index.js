@@ -3,11 +3,13 @@ import thunk from 'redux-thunk';
 import session from './session';
 import userPostsReducer from './userPosts';
 import postReducer from './posts';
+import commentReducer from './comments';
 
 const rootReducer = combineReducers({
   session,
   userPosts: userPostsReducer,
   posts: postReducer,
+  comments: commentReducer,
 });
 
 let enhancer;

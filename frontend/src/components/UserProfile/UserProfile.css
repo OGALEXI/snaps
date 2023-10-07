@@ -3,6 +3,7 @@
     justify-content: center;
     border-bottom: 1px solid black;
     padding: 1rem 3rem 1rem 3rem;
+    margin-bottom: 5px;
 }
 
 #user-avatar-username {
@@ -10,14 +11,19 @@
     margin: 5px;
 }
 
-.avatar2 {
-    font-size: 80px;
+#profile-default-avatar {
+    width: 4rem;
+    height: 4rem;
 }
 
 #user-profile-avatar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     border: 2px solid var(--main-pink);
-    padding: 2.5rem 2rem 2.5rem 2rem;
     border-radius: 3px;
+    width: 6rem;
+    height: 6rem;
 }
 
 #user-profile-full-name {
@@ -57,5 +63,13 @@
 
 #user-profile-posts-section {
     display: flex;
+    flex-wrap: wrap;
     justify-content: center;
 }
+
+.edit-add-profile-btns {
+    border: none;
+    background-color: rgba(255, 255, 255, 0);
+    padding: 0px;
+}
+

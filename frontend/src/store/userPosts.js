@@ -15,8 +15,8 @@ export const fetchUserPosts = (userId) => async (dispatch) => {
   try {
     const res = await fetch(`/posts/browse/${userId}`);
     if (res.ok) {
-      const posts = await res.json();
-      dispatch(setPosts(posts));
+      const data = await res.json();
+      dispatch(setPosts(data));
       return res;
     } else {
       const errors = await res.json();
