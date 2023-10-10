@@ -113,6 +113,33 @@ export const signUp =
     }
   };
 
+export const editUser =
+  (userId, firstname, lastname, avatar, bio) => async (dispatch) => {
+    const res = await fetch(`/edituser/${userId}`, {
+      method: 'PUT',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        firstname,
+        lastname,
+        avatar,
+        bio,
+      }),
+    });
+
+    if (res.ok) {
+      const data = await res.json();
+      dispatch(setUser(data));
+      return null;
+    } else {
+      const data = await res.json();
+      if (data.errors) {
+        return data.errors;
+      }
+    }
+  };
+
 const initialState = { user: null, users: [] };
 
 export default function reducer(state = initialState, action) {

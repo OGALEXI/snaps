@@ -1,0 +1,59 @@
+#edit-prof-pic {
+    border: 1px solid #ccc;
+    display: inline-block;
+    padding: 6px 12px;
+    cursor: pointer;
+}
+
+#edit-prof-pic-input {
+    display: none;
+}
+
+#edit-profile-h1 {
+    padding-left: 5px;
+    padding-bottom: 4px;
+}
+
+#edit-prof-title-arrow {
+    display: flex;
+    align-items: center;
+    padding-left: 10px;
+}
+
+#edit-prof-lower-page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#edit-prof-info-box {
+    border: 1px solid black;
+    height: fit-content;
+    width: fit-content;
+    padding: 2rem;
+}
+
+#bio-input-box {
+    border: 1px solid #ccc;
+    display: inline-block;
+    padding: 6px 12px;
+}
+
+#avatar-and-update-prompt {
+    display: flex;
+    align-items: center;
+    padding-top: 10px;
+}
+
+#bio-and-prompt {
+    display: flex;
+    align-items: center;
+    padding-top: 10px;
+}
+
+#edit-user-prof-sub-btn {
+    border: 1px solid #ccc;
+    background-color: white;
+    display: inline-block;
+    padding: 6px 12px;
+}

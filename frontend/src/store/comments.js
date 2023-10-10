@@ -37,7 +37,7 @@ export const fetchPostComments = (postId) => async (dispatch) => {
     if (res.ok) {
       const data = await res.json();
       dispatch(setComments(data));
-      return res;
+      return data;
     } else {
       const errors = await res.json();
       return errors;

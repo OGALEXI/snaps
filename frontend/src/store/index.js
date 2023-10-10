@@ -4,12 +4,14 @@ import session from './session';
 import userPostsReducer from './userPosts';
 import postReducer from './posts';
 import commentReducer from './comments';
+import notifReducer from './notifs';
 
 const rootReducer = combineReducers({
   session,
   userPosts: userPostsReducer,
   posts: postReducer,
   comments: commentReducer,
+  notifs: notifReducer,
 });
 
 let enhancer;

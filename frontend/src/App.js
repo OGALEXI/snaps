@@ -9,6 +9,8 @@ import Navigation from './components/Navigation/Navigation';
 import UserProfile from './components/UserProfile/UserProfile';
 import Notifications from './components/Navigation/Notifications/Notifications';
 import PostPage from './components/Posts/PostPage';
+import EditProfile from './components/UserProfile/EditProfile/EditProfile';
+import NewPost from './components/UserProfile/NewPost/NewPost';
 
 function App() {
   const dispatch = useDispatch();
@@ -31,11 +33,17 @@ function App() {
           <Route exact path="/signup">
             <Signup />
           </Route>
+          <Route exact path="/profile/edit">
+            <EditProfile />
+          </Route>
           <Route exact path="/profile">
             <UserProfile />
           </Route>
           <Route exact path="/notifications">
             <Notifications />
+          </Route>
+          <Route exact path="/posts/new">
+            <NewPost />
           </Route>
           <Route exact path="/posts/:postId">
             <PostPage />
