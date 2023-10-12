@@ -1,5 +1,6 @@
 const SET_POST = 'posts/SET_POST';
 const DELETE_POST = 'posts/DELETE_POST';
+const NON_USER_POSTS = '/posts/NON_USER_POSTS';
 
 const loadPost = (post) => ({
   type: SET_POST,
@@ -9,6 +10,11 @@ const loadPost = (post) => ({
 const deletePost = (postId) => ({
   type: DELETE_POST,
   payload: postId,
+});
+
+const setNonUserPosts = (posts) => ({
+  type: NON_USER_POSTS,
+  payload: posts,
 });
 
 export const loadPostDetails = (postId) => async (dispatch) => {
@@ -43,6 +49,18 @@ export const deletePostThunk = (postId) => async (dispatch) => {
   }
 };
 
+export const fetchNonUserPosts = () => async (dispatch) => {
+  const res = await fetch('/posts/');
+  if (res.ok) {
+    const data = await res.json();
+    dispatch(setNonUserPosts(data));
+    return data;
+  } else {
+    const errors = await res.json();
+    return errors;
+  }
+};
+
 export default function postReducer(state = {}, action) {
   let newState = { ...state };
   switch (action.type) {
@@ -52,6 +70,10 @@ export default function postReducer(state = {}, action) {
     case DELETE_POST:
       const deletedPostId = action.payload;
       newState.posts.filter((post) => post.id !== deletedPostId);
+      return newState;
+    case NON_USER_POSTS:
+      const posts = action.payload;
+      newState = posts;
       return newState;
     default:
       return state;
