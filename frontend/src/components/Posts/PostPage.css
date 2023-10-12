@@ -15,7 +15,7 @@
     width: fit-content;
     height: fit-content;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-    border: 1px solid black;
+    border: 1px solid rgb(170, 170, 170);
     border-radius: 2px;
 }
 
@@ -31,7 +31,6 @@
     width: 20rem;
     height: 20rem;
     object-fit: cover;
-    border: 2px solid black;
     margin: 2px;
 }
 

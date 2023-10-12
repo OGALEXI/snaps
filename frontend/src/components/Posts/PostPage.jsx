@@ -15,10 +15,16 @@ function PostPage() {
     const dispatch = useDispatch();
     const history = useHistory();
     const { postId } = useParams();
+    const currUser = useSelector((state) => state.session.user);
     const post = useSelector((state) => state?.posts[postId]);
-    const user = useSelector((state) => state?.session.users[post?.user_id])
+    const postOwner = useSelector((state) => state?.session.users[post?.user_id])
     const postComments = useSelector((state) => state.comments[postId]);
     const [comment, setComment] = useState('');
+    let userOrOwner = false;
+    
+    if (currUser?.username === postOwner?.username) {
+        userOrOwner = true;
+    }
 
     const addComment = async (e) => {
         e.preventDefault();
@@ -50,7 +56,7 @@ function PostPage() {
 
     return (
         <>
-            {user && post ? (
+            {postOwner && post && (
                 <div id="post-page-outer">
                     <section id="pp-post-and-comments">
                         <div id="pp-post-container">
@@ -62,10 +68,10 @@ function PostPage() {
                             <p id="pp-post-likes">{post.number_of_reactions ? (<p>{post.number_of_reactions} Likes</p>) : (<p>0 Likes</p>)}</p>
                         </div>
                         <div id="pp-username-and-caption" className="pp-post-details">
-                            <h3>@{user.username}</h3>
+                            <h3>@{postOwner.username}</h3>
                             <p>{post.caption}</p>
                         </div>
-                        <button onClick={handleDelete}>DELETE</button>
+                        {userOrOwner && <button onClick={handleDelete}>DELETE</button>}
                     </div>
                     <aside id="pp-comments-container">
                         {postComments?.map((comment) => (
@@ -86,8 +92,6 @@ function PostPage() {
                     </aside>
                     </section>
                 </div>
-            ) : (
-                <h1>Loading</h1>
             )}
         </>
     )

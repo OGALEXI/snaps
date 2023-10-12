@@ -12,7 +12,7 @@ function UserStuff() {
   const logOut = (e) => {
     e.preventDefault();
     dispatch(logout())
-    return <Redirect to="/" />
+    return <Redirect exact to="/" />
   }
 
   return (
@@ -29,7 +29,7 @@ function UserStuff() {
           </div>
         </>
       ) : (
-        <div class="login-signup">
+        <div id="login-signup">
             <NavLink to='/login' id="login-btn">Login</NavLink>
             <NavLink to='/signup' id="signup-btn">Signup</NavLink>
         </div>

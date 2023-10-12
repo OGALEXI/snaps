@@ -16,7 +16,7 @@ function UserProfile() {
                 <aside id="user-avatar-username">
                     <div id="user-profile-avatar">
                         {user.avatar ? (
-                            <h1>AVATAR1</h1>
+                            <img src={user.avatar} id="profile-avatar-img"></img>
                         ) : (
                             <img src={defaultAvatar} id="profile-default-avatar"></img>
                         )}

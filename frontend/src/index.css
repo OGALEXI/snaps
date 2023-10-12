@@ -1,7 +1,6 @@
 body {
     height: 100vh;
     width: 100vw;
-    background-color: white;
     padding: 0px;
     margin: 0px;
 }
@@ -18,3 +17,9 @@ html {
     --dark-pink: rgb(152, 2, 65);
     --main-purple: rgb(182, 0, 253);
 }
+
+#root>ul {
+    margin: 0px;
+    padding: 0px;
+}
+

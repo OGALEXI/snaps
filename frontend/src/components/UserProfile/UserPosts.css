@@ -8,6 +8,14 @@
     width: 12rem;
     height: 12rem;
     object-fit: cover;
-    border: 2px solid black;
     margin: 2px;
+    transition: width 300ms, height 300ms;
+}
+
+.post-box .post-img:hover {
+    width: 14rem;
+    height: 14rem;
+    object-fit: cover;
+    margin: 2px;
+    box-shadow: rgba(255, 0, 106, 0.82) 0px 2px 4px 0px, rgba(255, 0, 106, 0.82) 0px 2px 16px 0px;
 }

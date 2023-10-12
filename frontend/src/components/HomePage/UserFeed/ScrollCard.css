@@ -1,17 +1,67 @@
-.post-card {
+#scroll-card {
+    background-color: white;
     display: flex;
     flex-direction: column;
+    width: fit-content;
     border: 1px solid #dbdbdb;
     margin-bottom: 1.5rem;
-}
-
-.post-card h4 {
-    background: #fafafa;
+    text-decoration: none;
+    color: black;
     padding: 0.5rem;
+    box-shadow: rgba(0, 0, 0, 0.234) 0px 2px 5px;
 }
 
-.post-card img {
-    height: 300px;
-    width: 500px;
+#scrolly-content-box {
+    height: 25rem;
+    width: 25rem;
+    margin: 0.3rem;
+}
+
+#scrolly-content-img {
+    height: 25rem;
+    width: 25rem;
     object-fit: cover;
+    border-radius: 1px;
+}
+
+
+
+#scrolly-avatar-img {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 1px;
+    width: 4rem;
+    height: 4rem;
+    object-fit: cover;
+    margin-right: 10px;
+}
+
+#scrolly-card-header {
+    display: flex;
+    align-items: center;
+    padding: 5px;
+    font-size: large;
+}
+
+#scrolly-default-avatar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid black;
+    border-radius: 1px;
+    width: 4rem;
+    height: 4rem;
+    margin-right: 10px;
+}
+
+#scroll-card-bottom {
+    display: flex;
+    align-items: center;
+    padding-left: 0.3rem;
+}
+
+#scroll-card-bottom > p {
+    padding-left: 10px;
+    padding-top: 1px;
 }

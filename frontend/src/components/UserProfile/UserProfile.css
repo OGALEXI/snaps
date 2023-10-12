@@ -26,6 +26,17 @@
     height: 6rem;
 }
 
+#profile-avatar-img {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid var(--main-pink);
+    border-radius: 3px;
+    width: 6rem;
+    height: 6rem;
+    object-fit: cover;
+}
+
 #user-profile-full-name {
     margin: 0px;
 }
