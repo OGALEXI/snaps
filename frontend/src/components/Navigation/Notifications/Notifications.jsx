@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { Redirect } from "react-router-dom";
 import { fetchUserNotifs } from '../../../store/notifs'
+import './Notifications.css'
 
 
 function Notifications() {
@@ -14,14 +15,20 @@ function Notifications() {
     }, [dispatch, user.id])
 
     return (
-        <>
-            {userNotifs?.map((notif) => (
-                <div>
+        <div id="notif-page">
+            {userNotifs ? (
+                userNotifs.map((notif) => (
+                <div id="notif-container">
                     <p>{notif.created_date}</p>
                     <h1>{notif.message}</h1>
                 </div>
-            ))}
-        </>
+            ))
+            ) : (
+                <>
+                    <h1>No Notifications.</h1>
+                </>
+            )}
+        </div>
     )
 }
 

@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getAllUsers } from "../../store/session";
+import './Comments.css';
 
 
 function Comment({ comment }) {
@@ -12,10 +13,10 @@ function Comment({ comment }) {
     }, [dispatch])
 
     return (
-        <>
-            <p>@{user?.username}</p>
-            <h1>{comment.content}</h1>
-        </>
+        <div id="pp-comment-container">
+            <h3>@{user?.username}</h3>
+            <p>{comment.content}</p>
+        </div>
     );
 }
 

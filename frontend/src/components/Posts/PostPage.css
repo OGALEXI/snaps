@@ -27,6 +27,10 @@
     padding-left: 10px;
 }
 
+#pp-username-and-caption > h3 {
+    font-weight: 300;
+}
+
 #post-page-img {
     width: 20rem;
     height: 20rem;
@@ -53,4 +57,44 @@
     width: 20rem;
     padding: 1rem;
     color: white;
+}
+
+#add-comment-form {
+    display: flex;
+    justify-content: space-evenly;
+    padding: 1rem;
+}
+
+#add-comment-input {
+    height: 1.5rem;
+    padding: 5px;
+    border: none;
+    background-color: white;
+    border-radius: 2px;
+}
+
+#add-comment-btn {
+    padding-left: 1rem;
+    padding-right: 1rem;
+    border: none;
+    background-color: white;
+    border-radius: 2px;
+}
+
+#add-comment-btn:hover {
+    background-color: var(--main-pink);
+}
+
+#user-pp-delete-btn {
+    border: none;
+    background-color: var(--main-pink);
+    padding: 5px 10px 5px 10px;
+    border-radius: 2px;
+    color: white;
+    transition: padding 200ms;
+}
+
+#user-pp-delete-btn:hover {
+    padding: 7px 12px 7px 12px;
+    background-color: rgba(255, 0, 106, 0.871);
 }

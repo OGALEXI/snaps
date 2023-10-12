@@ -21,7 +21,7 @@ function PostPage() {
     const postComments = useSelector((state) => state.comments[postId]);
     const [comment, setComment] = useState('');
     let userOrOwner = false;
-    
+
     if (currUser?.username === postOwner?.username) {
         userOrOwner = true;
     }
@@ -71,7 +71,7 @@ function PostPage() {
                             <h3>@{postOwner.username}</h3>
                             <p>{post.caption}</p>
                         </div>
-                        {userOrOwner && <button onClick={handleDelete}>DELETE</button>}
+                        {userOrOwner && <button onClick={handleDelete} id="user-pp-delete-btn">DELETE</button>}
                     </div>
                     <aside id="pp-comments-container">
                         {postComments?.map((comment) => (
@@ -86,8 +86,9 @@ function PostPage() {
                                 onChange={(e) => setComment(e.target.value)}
                                 required
                                 placeholder='Add a comment...'
+                                id="add-comment-input"
                             />
-                            <button type="submit">Post</button>
+                            <button type="submit" id="add-comment-btn">Post</button>
                         </form>
                     </aside>
                     </section>
