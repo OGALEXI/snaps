@@ -11,6 +11,7 @@ import Notifications from './components/Navigation/Notifications/Notifications';
 import PostPage from './components/Posts/PostPage';
 import EditProfile from './components/UserProfile/EditProfile/EditProfile';
 import NewPost from './components/UserProfile/NewPost/NewPost';
+import OtherProfiles from './components/HomePage/OtherProfiles/OtherProfiles';
 
 function App() {
   const dispatch = useDispatch();
@@ -47,6 +48,9 @@ function App() {
           </Route>
           <Route exact path="/posts/:postId">
             <PostPage />
+          </Route>
+          <Route exact path="/otherusers/:userId">
+            <OtherProfiles />
           </Route>
         </Switch>
       )}

@@ -46,25 +46,9 @@ function EditProfile() {
             <section id="edit-prof-lower-page">
                 <div id="edit-prof-info-box">
                     <h2>@{user.username}</h2>
-                    <div>
-                        <input
-                            type="text"
-                            value={firstname}
-                            onChange={(e) => setFirstname(e.target.value)}
-                            required
-                            placeholder={user.firstname}
-                        />
-                        <input
-                            type="text"
-                            value={lastname}
-                            onChange={(e) => setLastname(e.target.value)}
-                            required
-                            placeholder={user.lastname}
-                        />
-                    </div>
                     <div id="avatar-and-update-prompt">
                         {user.avatar ? (
-                            <h1>AVATAR1</h1>
+                            <img src={user.avatar} id="profile-avatar-img"></img>
                         ) : (
                             <img src={defaultAvatar} id="profile-default-avatar"></img>
                         )}
@@ -73,8 +57,26 @@ function EditProfile() {
                             Update Profile Picture
                         </label>
                     </div>
+                    <div id="firstandlastboxes">
+                        <input
+                            type="text"
+                            value={firstname}
+                            onChange={(e) => setFirstname(e.target.value)}
+                            required
+                            placeholder={user.firstname}
+                            className="firstlastinput"
+                        />
+                        <input
+                            type="text"
+                            value={lastname}
+                            onChange={(e) => setLastname(e.target.value)}
+                            required
+                            placeholder={user.lastname}
+                            className="firstlastinput"
+                        />
+                    </div>
                     <footer id="bio-and-prompt">
-                        <h3>BIO</h3>
+                        <h3>EDIT BIO:</h3>
                         <textarea onChange={editBio} id="bio-input-box">{user.bio}</textarea>
                     </footer>
                     <button onClick={submitEditUser} id="edit-user-prof-sub-btn">Submit</button>

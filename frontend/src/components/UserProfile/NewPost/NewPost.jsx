@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { NavLink, Redirect } from "react-router-dom";
 import { createPost } from "../../../store/userPosts";
 import { useDispatch } from "react-redux";
+import './NewPost.css';
 
 
 function NewPost() {
@@ -35,17 +36,25 @@ function NewPost() {
 
     return (
         <>
-            <div>
+            <div id="link-to-prof-from-newp">
                 <NavLink to='/profile'><span class="material-symbols-outlined">arrow_back</span></NavLink>
                 <h1>Create a new post</h1>
             </div>
-            <div>TODO-IMG BOX</div>
-            <label id="edit-prof-pic">
-                <input type="file" id="edit-prof-pic-input" onChange={editContent}/>
-                Choose Photo
-            </label>
-            <textarea onChange={editCaption}>Caption</textarea>
-            <button onClick={createNewPost}>POST</button>
+            <section id="new-post-lower-page">
+                <div id="create-new-post-container">
+                    <div id="new-post-img-box">
+                        {content && (
+                            <img src={content}></img>
+                        )}
+                    </div>
+                    <label id="edit-prof-pic">
+                        <input type="file" id="edit-prof-pic-input" onChange={editContent}/>
+                        Choose Photo
+                    </label>
+                    <textarea onChange={editCaption} id="new-post-caption" placeholder="Caption"></textarea>
+                    <button onClick={createNewPost} id="newp-create-btn">CREATE POST</button>
+                </div>
+            </section>
         </>
     )
 }

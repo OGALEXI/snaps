@@ -25,7 +25,7 @@ function Notifications() {
             ))
             ) : (
                 <>
-                    <h1>No Notifications.</h1>
+                    <h1 id="no-notifs-yet">No Notifications.</h1>
                 </>
             )}
         </div>

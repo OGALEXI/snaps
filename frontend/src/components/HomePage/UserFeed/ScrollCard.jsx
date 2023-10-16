@@ -8,6 +8,12 @@ import { NavLink } from 'react-router-dom';
 const ScrollCard = ({ post }) => {
     const dispatch = useDispatch();
     const user = useSelector((state) => state?.session.users[post?.user_id])
+    const currUser = useSelector((state) => state.session.user)
+    let isCurrentUser = false;
+
+    if (currUser?.id === user?.id) {
+        isCurrentUser = true;
+    }
 
     useEffect(() => {
         dispatch(getAllUsers())
@@ -26,7 +32,11 @@ const ScrollCard = ({ post }) => {
                                     <img src={defaultAvatar} id="scrolly-default-avatar"></img>
                                 )}
                             </div>
-                            <p>@{user.username}</p>
+                            {isCurrentUser ? (
+                                <NavLink to={`/profile`}>@{user.username}</NavLink>
+                            ) : (
+                                <NavLink to={`/otherusers/${user.id}`}>@{user.username}</NavLink>
+                            )}
                         </header>
                     <div id="scrolly-content-box">
                         <img src={post.content} id="scrolly-content-img"/>

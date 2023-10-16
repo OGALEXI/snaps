@@ -19,3 +19,7 @@
     margin: 2px;
     box-shadow: rgba(255, 0, 106, 0.512) 0px 2px 4px 0px, rgba(255, 0, 106, 0.512) 0px 2px 16px 0px;
 }
+
+#no-posts-yet {
+    font-weight: 300;
+}
