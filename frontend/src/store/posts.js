@@ -1,6 +1,7 @@
 const SET_POST = 'posts/SET_POST';
 const DELETE_POST = 'posts/DELETE_POST';
 const NON_USER_POSTS = '/posts/NON_USER_POSTS';
+const SET_POST_REACTIONS = '/posts/SET_POST_REACTIONS';
 
 const loadPost = (post) => ({
   type: SET_POST,
@@ -15,6 +16,11 @@ const deletePost = (postId) => ({
 const setNonUserPosts = (posts) => ({
   type: NON_USER_POSTS,
   payload: posts,
+});
+
+const setPostReactions = (reactions) => ({
+  type: SET_POST_REACTIONS,
+  payload: reactions,
 });
 
 export const loadPostDetails = (postId) => async (dispatch) => {
@@ -54,6 +60,18 @@ export const fetchNonUserPosts = () => async (dispatch) => {
   if (res.ok) {
     const data = await res.json();
     dispatch(setNonUserPosts(data));
+    return data;
+  } else {
+    const errors = await res.json();
+    return errors;
+  }
+};
+
+export const fetchPostReactions = (postId) => async (dispatch) => {
+  const res = await fetch(`posts/${postId}/reactions`);
+  if (res.ok) {
+    const data = await res.json();
+    dispatch(setPostReactions(data));
     return data;
   } else {
     const errors = await res.json();

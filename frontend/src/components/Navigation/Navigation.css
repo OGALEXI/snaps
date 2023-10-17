@@ -12,6 +12,7 @@
   margin: 0px;
   position: fixed;
   top: 0px;
+  z-index: 1;
 }
 
 #nav-left-link {

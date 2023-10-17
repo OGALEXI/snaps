@@ -7,7 +7,7 @@ import HomePage from './components/HomePage/HomePage';
 import { authenticate } from './store/session';
 import Navigation from './components/Navigation/Navigation';
 import UserProfile from './components/UserProfile/UserProfile';
-import Notifications from './components/Navigation/Notifications/Notifications';
+import Notifications from './components/Notifications/Notifications';
 import PostPage from './components/Posts/PostPage';
 import EditProfile from './components/UserProfile/EditProfile/EditProfile';
 import NewPost from './components/UserProfile/NewPost/NewPost';

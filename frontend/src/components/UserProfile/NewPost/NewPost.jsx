@@ -11,7 +11,7 @@ function NewPost() {
     const [content, setContent] = useState(null);
 
     function editContent(e) {
-        setContent(URL.createObjectURL(e.target.files[0]));
+        setContent(e.target.files[0]);
     }
 
     function editCaption(e) {
@@ -27,7 +27,7 @@ function NewPost() {
         if (content) {
             try {
                 await dispatch(createPost(content, caption))
-                return <Redirect to='/profile' />
+                alert('Post successfully created!')
             } catch (error) {
                 return console.log('Error', error)
             }

@@ -33,6 +33,7 @@ function OtherProfiles() {
                         <section id="user-name-stats">
                             <div className="user-profile-info">
                                 <h1 id="user-profile-full-name">{user.firstname} {user.lastname}</h1>
+                                <h2>TODO-Following</h2>
                             </div>
                             <ul className="user-profile-info" id="user-num-stats">
                                 <li className="user-num-of">
