@@ -1,0 +1,31 @@
+#follow-btn {
+    border: 2px solid var(--main-pink);
+    border-radius: 2px;
+    background-color: white;
+    padding: 5px 10px 5px 10px;
+    transition: padding 270ms;
+}
+
+#follow-btn:hover {
+    background-color: rgba(255, 0, 106, 0.168);
+    padding: 5px 16px 5px 16px;
+}
+
+#unfollow-btn {
+    border: 2px solid var(--main-pink);
+    border-radius: 2px;
+    background-color: var(--main-pink);
+    color: white;
+    padding: 5px 10px 5px 10px;
+    transition: padding 5ms;
+}
+
+#unfollow-btn:hover {
+    background-color: rgba(255, 0, 106, 0.721);
+    padding: 5px 16px 5px 16px;
+}
+
+#other-follow-unfollow {
+    display: flex;
+    justify-content: space-between;
+}

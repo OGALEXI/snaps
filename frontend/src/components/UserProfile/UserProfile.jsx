@@ -1,12 +1,18 @@
-import React from "react"; 
-import { useSelector } from "react-redux";
+import React, { useEffect } from "react"; 
+import { useSelector, useDispatch } from "react-redux";
 import { NavLink, Redirect } from "react-router-dom";
 import './UserProfile.css'
 import UserPosts from "./UserPosts";
 import defaultAvatar from '../../assets/default_avatar.png';
+import { authenticate } from "../../store/session";
 
 function UserProfile() {
+    const dispatch = useDispatch();
     const user = useSelector((state) => state.session.user);
+    
+    useEffect(() => {
+        dispatch(authenticate())
+    }, [dispatch])
 
     if (!user) return <Redirect to="/" />;
 
@@ -16,9 +22,9 @@ function UserProfile() {
                 <aside id="user-avatar-username">
                     <div id="user-profile-avatar">
                         {user.avatar ? (
-                            <img src={user.avatar} id="profile-avatar-img"></img>
+                            <img src={user.avatar} id="profile-avatar-img" alt="avatar"></img>
                         ) : (
-                            <img src={defaultAvatar} id="profile-default-avatar"></img>
+                            <img src={defaultAvatar} id="profile-default-avatar" alt="avatar"></img>
                         )}
                     </div>
                     <p>@{user.username}</p>

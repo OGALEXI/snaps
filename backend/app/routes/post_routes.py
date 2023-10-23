@@ -11,7 +11,8 @@ post_routes = Blueprint('posts', __name__)
 @post_routes.route('/')
 @login_required
 def get_all_posts():
-    posts = Post.query.order_by(Post.created_date.desc()).all()
+    posts = Post.query.order_by(Post.created_date.desc()).filter(
+        Post.user_id != current_user.id).all()
     return {'posts': [post.to_dict() for post in posts]}
 
 
@@ -95,17 +96,6 @@ def create_post_reaction(post_id):
         return post_reaction.to_dict()
     else:
         return {'message': 'Cannot like a post twice.'}
-
-
-@post_routes.route('/<int:post_id>/reacted')
-@login_required
-def did_user_like(post_id):
-    reaction = Post_Reaction.query.filter_by(
-        post_id=post_id).filter_by(user_id=current_user.id).first()
-    if reaction:
-        return {'reacted': 'True'}
-    else:
-        return {'reacted': 'False'}
 
 
 @post_routes.route('/reactions/<int:reaction_id>/delete', methods=['DELETE'])

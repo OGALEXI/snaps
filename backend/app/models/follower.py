@@ -7,8 +7,9 @@ class Follower(db.Model):
 
     id = db.Column(db.Integer, primary_key=True)
     follower_id = db.Column(
-        db.Integer, db.ForeignKey('users.id'), nullable=False)
-    user_id = db.Column(db.Integer, db.ForeignKey('users.id'), nullable=False)
+        db.Integer, db.ForeignKey('users.id', ondelete='CASCADE'), nullable=False)
+    user_id = db.Column(db.Integer, db.ForeignKey(
+        'users.id', ondelete='CASCADE'), nullable=False)
 
     follower = relationship('User', foreign_keys=[follower_id])
     user = relationship('User', foreign_keys=[user_id])

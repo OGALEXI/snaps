@@ -10,14 +10,19 @@ class Notification(db.Model):
     message = db.Column(db.String(255), nullable=False)
     created_date = db.Column(db.DateTime(
         timezone=True), server_default=func.now())
-    user_id = db.Column(db.Integer, db.ForeignKey('users.id'), nullable=False)
+    recipient_id = db.Column(db.Integer, db.ForeignKey(
+        'users.id', ondelete='CASCADE'), nullable=False)
+    user_id = db.Column(db.Integer, db.ForeignKey(
+        'users.id', ondelete='CASCADE'), nullable=False)
 
-    user = relationship('User', back_populates='notifications')
+    recipient = relationship('User', foreign_keys=[recipient_id])
+    user = relationship('User', foreign_keys=[user_id])
 
     def to_dict(self):
         return {
             'id': self.id,
             'message': self.message,
             'created_date': self.created_date,
+            'recipient_id': self.recipient_id,
             'user_id': self.user_id,
         }

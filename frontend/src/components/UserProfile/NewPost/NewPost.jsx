@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { NavLink, Redirect } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import { createPost } from "../../../store/userPosts";
 import { useDispatch } from "react-redux";
 import './NewPost.css';
@@ -44,7 +44,7 @@ function NewPost() {
                 <div id="create-new-post-container">
                     <div id="new-post-img-box">
                         {content && (
-                            <img src={content}></img>
+                            <img src={content}  alt="avatar"></img>
                         )}
                     </div>
                     <label id="edit-prof-pic">

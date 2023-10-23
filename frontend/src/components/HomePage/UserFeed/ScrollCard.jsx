@@ -27,9 +27,9 @@ const ScrollCard = ({ post }) => {
                         <header id="scrolly-card-header">
                             <div id="scrolly-avatar-container">
                                 {user.avatar ? (
-                                    <img src={user.avatar} id="scrolly-avatar-img"></img>
+                                    <img src={user.avatar} id="scrolly-avatar-img"  alt="avatar"></img>
                                 ) : (
-                                    <img src={defaultAvatar} id="scrolly-default-avatar"></img>
+                                    <img src={defaultAvatar} id="scrolly-default-avatar"  alt="avatar"></img>
                                 )}
                             </div>
                             {isCurrentUser ? (
@@ -39,12 +39,13 @@ const ScrollCard = ({ post }) => {
                             )}
                         </header>
                     <div id="scrolly-content-box">
-                        <img src={post.content} id="scrolly-content-img"/>
+                        <img src={post.content} id="scrolly-content-img"  alt="avatar"/>
                     </div>
                     <div id="scroll-card-bottom">
                         <h3>{user.username}</h3>
                         <p>{post.caption}</p>
                     </div>
+                    <div>{post.number_of_reactions}</div>
                     </div>
                 </NavLink>
             )}

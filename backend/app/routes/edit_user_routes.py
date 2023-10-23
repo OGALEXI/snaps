@@ -8,50 +8,19 @@ from .auth_routes import validation_errors_to_msgs
 edit_user_routes = Blueprint('edit_user', __name__)
 
 
-@edit_user_routes.route('/<int:id>/avatar', methods=['PUT'])
+@edit_user_routes.route('/<int:id>', methods=['PUT'])
 @login_required
-def edit_avatar(id):
+def edit_user(id):
     form = EditUserInfoForm()
 
     form['csrf_token'].data = request.cookies['csrf_token']
     if form.validate_on_submit():
         user = User.query.get(id)
 
-        user.avatar = form.data['content']
-        db.session.commit()
-        return user.to_dict()
-
-    else:
-        return {'errors': validation_errors_to_msgs(form.errors)}, 401
-
-
-@edit_user_routes.route('/<int:id>/firstname', methods=['PUT'])
-@login_required
-def edit_firstname(id):
-    form = EditUserInfoForm()
-
-    form['csrf_token'].data = request.cookies['csrf_token']
-    if form.validate_on_submit():
-        user = User.query.get(id)
-
-        user.firstname = form.data['content']
-        db.session.commit()
-        return user.to_dict()
-
-    else:
-        return {'errors': validation_errors_to_msgs(form.errors)}, 401
-
-
-@edit_user_routes.route('/<int:id>/lastname', methods=['PUT'])
-@login_required
-def edit_lastname(id):
-    form = EditUserInfoForm()
-
-    form['csrf_token'].data = request.cookies['csrf_token']
-    if form.validate_on_submit():
-        user = User.query.get(id)
-
-        user.lastname = form.data['content']
+        user.firstname = form.data['firstname']
+        user.lastname = form.data['lastname']
+        user.avatar = form.data['avatar']
+        user.bio = form.data['bio']
         db.session.commit()
         return user.to_dict()
 

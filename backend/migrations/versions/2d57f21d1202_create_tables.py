@@ -1,8 +1,8 @@
 """create tables
 
-Revision ID: 5e50707c3908
+Revision ID: 2d57f21d1202
 Revises: 
-Create Date: 2023-09-27 21:44:47.704516
+Create Date: 2023-10-22 15:55:52.562238
 
 """
 from alembic import op
@@ -10,7 +10,7 @@ import sqlalchemy as sa
 
 
 # revision identifiers, used by Alembic.
-revision = '5e50707c3908'
+revision = '2d57f21d1202'
 down_revision = None
 branch_labels = None
 depends_on = None
@@ -29,6 +29,7 @@ def upgrade():
     sa.Column('number_of_posts', sa.BigInteger(), nullable=True),
     sa.Column('number_of_followers', sa.BigInteger(), nullable=True),
     sa.Column('number_of_following', sa.BigInteger(), nullable=True),
+    sa.Column('bio', sa.String(length=255), nullable=True),
     sa.PrimaryKeyConstraint('id'),
     sa.UniqueConstraint('email'),
     sa.UniqueConstraint('username')
@@ -37,16 +38,18 @@ def upgrade():
     sa.Column('id', sa.Integer(), nullable=False),
     sa.Column('follower_id', sa.Integer(), nullable=False),
     sa.Column('user_id', sa.Integer(), nullable=False),
-    sa.ForeignKeyConstraint(['follower_id'], ['users.id'], ),
-    sa.ForeignKeyConstraint(['user_id'], ['users.id'], ),
+    sa.ForeignKeyConstraint(['follower_id'], ['users.id'], ondelete='CASCADE'),
+    sa.ForeignKeyConstraint(['user_id'], ['users.id'], ondelete='CASCADE'),
     sa.PrimaryKeyConstraint('id')
     )
     op.create_table('notifications',
     sa.Column('id', sa.Integer(), nullable=False),
     sa.Column('message', sa.String(length=255), nullable=False),
     sa.Column('created_date', sa.DateTime(timezone=True), server_default=sa.text('now()'), nullable=True),
+    sa.Column('recipient_id', sa.Integer(), nullable=False),
     sa.Column('user_id', sa.Integer(), nullable=False),
-    sa.ForeignKeyConstraint(['user_id'], ['users.id'], ),
+    sa.ForeignKeyConstraint(['recipient_id'], ['users.id'], ondelete='CASCADE'),
+    sa.ForeignKeyConstraint(['user_id'], ['users.id'], ondelete='CASCADE'),
     sa.PrimaryKeyConstraint('id')
     )
     op.create_table('posts',

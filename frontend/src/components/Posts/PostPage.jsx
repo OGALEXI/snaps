@@ -60,9 +60,9 @@ function PostPage() {
                 <div id="post-page-outer">
                     <section id="pp-post-and-comments">
                         <div id="pp-post-container">
-                        <img src={post.content} id="post-page-img"></img>
+                        <img src={post.content} id="post-page-img"  alt="avatar"></img>
                         <div>
-                            <button id="pp-heart-like"><img src={likeHeart}></img></button>
+                            <button id="pp-heart-like"><img src={likeHeart}  alt="avatar"></img></button>
                         </div>
                         <div className="pp-post-details">
                             <p id="pp-post-likes">{post.number_of_reactions ? (<p>{post.number_of_reactions} Likes</p>) : (<p>0 Likes</p>)}</p>

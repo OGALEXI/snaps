@@ -13,13 +13,11 @@ function UserPosts({ user }) {
         dispatch(fetchUserPosts(user.id))
     }, [dispatch, user.id])
 
-    console.log(userPosts)
-
     return (
         <>
         {userPosts.length ? userPosts.map((post) => (
-            <NavLink to={`/posts/${post.id}`} className="post-box">
-                <img src={post.content} className="post-img"></img>
+            <NavLink to={`/posts/${post.id}`} className="post-box" key={post.id}>
+                <img src={post.content} className="post-img"  alt="avatar"></img>
             </NavLink>
         )) : (
             <h1 id="no-posts-yet">No Posts Yet.</h1>

@@ -4,8 +4,8 @@
 }
 
 .post-box .post-img {
-    width: 12rem;
-    height: 12rem;
+    width: 19rem;
+    height: 19rem;
     object-fit: cover;
     margin: 2px;
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
@@ -13,8 +13,8 @@
 }
 
 .post-box .post-img:hover {
-    width: 12.5rem;
-    height: 12.5rem;
+    width: 19.5rem;
+    height: 19.5rem;
     object-fit: cover;
     margin: 2px;
     box-shadow: rgba(255, 0, 106, 0.512) 0px 2px 4px 0px, rgba(255, 0, 106, 0.512) 0px 2px 16px 0px;

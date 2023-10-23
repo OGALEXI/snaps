@@ -48,9 +48,9 @@ function EditProfile() {
                     <h2>@{user.username}</h2>
                     <div id="avatar-and-update-prompt">
                         {user.avatar ? (
-                            <img src={user.avatar} id="profile-avatar-img"></img>
+                            <img src={user.avatar} id="profile-avatar-img" alt="avatar"></img>
                         ) : (
-                            <img src={defaultAvatar} id="profile-default-avatar"></img>
+                            <img src={defaultAvatar} id="profile-default-avatar" alt="avatar"></img>
                         )}
                         <label id="edit-prof-pic">
                             <input type="file" id="edit-prof-pic-input" onChange={editProfilePic}/>

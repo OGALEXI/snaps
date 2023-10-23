@@ -9,9 +9,17 @@ def seed_comments():
     comment2 = Comment(
         content="blablabla", user_id=2, post_id=1
     )
+    comment3 = Comment(
+        content="blablabla", user_id=2, post_id=1
+    )
+    comment4 = Comment(
+        content="blablabla", user_id=2, post_id=1
+    )
 
     db.session.add(comment1)
     db.session.add(comment2)
+    db.session.add(comment3)
+    db.session.add(comment4)
     db.session.commit()
 
 
